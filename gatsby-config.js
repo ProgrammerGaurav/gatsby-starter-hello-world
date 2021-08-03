@@ -9,12 +9,13 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: "rickandmortyapi",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: "rickandmortyapi",
-        // Url to query from
-        url: "https://rickandmortyapi.com/api/character",
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `bearer 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`, // here
+        },
+        fetchOptions: {},
       },
     },
   ],
