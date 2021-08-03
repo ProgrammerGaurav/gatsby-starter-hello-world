@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://gatsby-starter-hello-world/./src/pages/404.jsx"],"names":[],"mappings":"kKASA,UAPc,WACZ,OACE,2BACE","file":"component---src-pages-404-jsx-284f5b762e6b1043ada3.js","sourcesContent":["import React from \"react\"\n\nconst Error = () => {\n  return (\n    <div>\n      <h1>404 page</h1>\n    </div>\n  )\n}\nexport default Error\n"],"sourceRoot":""}
