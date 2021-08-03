@@ -29,7 +29,7 @@ export default function Home({ id }) {
             <Link to={`/character?id=${character.id}`}>
               <div className="profile">
                 <div className="image">
-                  <img src={character.image} />
+                  <img src={character.image} alt="character-img" />
                 </div>
                 <div className="text">
                   <div className="name">{character.name}</div>
