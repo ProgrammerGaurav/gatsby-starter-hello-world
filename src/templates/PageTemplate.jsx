@@ -73,13 +73,15 @@ const PageTemplate = ({ data, pageContext }) => {
         </div>
       </div>
       <div className="home">
-        {characters.length > 0
-          ? characters.map(character => (
-              <div key={character.id} className="container">
-                <Profile character={character} />
-              </div>
-            ))
-          : "fdsa"}
+        {characters.length > 0 ? (
+          characters.map(character => (
+            <div key={character.id} className="container">
+              <Profile character={character} />
+            </div>
+          ))
+        ) : (
+          <h3>Character Not Found</h3>
+        )}
       </div>
       <div className="pagination">
         {[...Array(totalPages)].map((_, pageNo) => (

@@ -69,6 +69,11 @@ a {
   padding: 0px 200px;
 }
 
+.home h3 {
+  text-align: center;
+  width: 100%;
+}
+
 .container {
   width: 50%;
   border: 20px solid transparent;
