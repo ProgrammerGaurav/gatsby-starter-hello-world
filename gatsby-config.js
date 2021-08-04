@@ -9,13 +9,9 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
-        headers: {
-          Authorization: `bearer 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`, // here
-        },
-        fetchOptions: {},
+        typeName: "rickandmortyapi",
+        fieldName: "rickandmortyapi",
+        url: "https://rickandmortyapi.com/graphql",
       },
     },
   ],
