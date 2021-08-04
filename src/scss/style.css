@@ -51,6 +51,14 @@ a {
   margin: 10px;
 }
 
+.search-bar__button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+  background-color: #3c3d44;
+  color: #fff;
+}
+
 .home {
   margin-top: 30px;
   display: -webkit-box;
@@ -113,6 +121,13 @@ a {
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.profile-card:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 .profile-card__image {
@@ -151,17 +166,21 @@ a {
   margin: 30px;
 }
 
-.pagination__button {
-  display: inline-block;
-  border: 2px solid #fff;
-  width: 100px;
-  padding: 10px;
-  margin: 0 10px;
-}
-
 .pagination__pgnumber {
   display: inline-block;
+  border: 2px solid #fff;
+  padding: 10px;
+  width: 42px;
   margin: 10px;
+}
+
+.pagination__pgnumber:hover {
+  opacity: 0.5;
+}
+
+.pagination__selected {
+  background-color: #fff;
+  color: #24272f;
 }
 
 .character-card {
