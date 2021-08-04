@@ -18,35 +18,31 @@ const PageTemplate = ({ data, pageContext }) => {
     }
     const query = gql`
       query myQuery($name: String!, $page: Int!) {
-        rickandmortyapi {
-          characters(filter: { name: $name }, page: $page) {
-            info {
-              pages
-            }
-            results {
+        characters(filter: { name: $name }, page: $page) {
+          info {
+            pages
+          }
+          results {
+            name
+            gender
+            id
+            image
+            location {
               name
-              gender
-              id
-              image
-              location {
-                name
-              }
-              origin {
-                name
-              }
-              species
-              status
             }
+            origin {
+              name
+            }
+            species
+            status
           }
         }
       }
     `
 
-    request("/__graphql", query, variables)
+    request("https://rickandmortyapi.com/graphql", query, variables)
       .then(data => {
-        console.log(searchText)
-        console.log(data.rickandmortyapi.characters.results)
-        setCharacters(data.rickandmortyapi.characters.results)
+        setCharacters(data.characters.results)
       })
       .catch(error => {
         console.log(error)
