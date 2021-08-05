@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/gatsby-starter-hello-world",
+  pathPrefix: "/rick-and-morty-api-gatsby",
   siteMetadata: {
     title: "My First Gatsby Site",
   },

@@ -3,15 +3,18 @@ import Layout from "../components/Layout"
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import { request, gql } from "graphql-request"
-
+import { FaTimes } from "react-icons/fa"
 const PageTemplate = ({ data, pageContext }) => {
   const { page, totalPages } = pageContext
   const [characters, setCharacters] = useState(
     data.rickandmortyapi.characters.results
   )
   const [searchText, setSearchText] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const updateCharacters = () => {
+    setLoading(true)
+
     const variables = {
       name: searchText,
       page: searchText === "" ? page : 0,
@@ -43,33 +46,50 @@ const PageTemplate = ({ data, pageContext }) => {
     request("https://rickandmortyapi.com/graphql", query, variables)
       .then(data => {
         setCharacters(data.characters.results)
+        setLoading(false)
       })
       .catch(error => {
         console.log(error)
         setCharacters([])
+        setLoading(false)
       })
   }
   return (
     <Layout>
       <div className="search-bar">
-        <input
-          className="search-bar__input"
-          type="text"
-          placeholder="Search"
-          value={searchText}
-          onChange={e => {
-            if (e.target.value === "") {
-              setCharacters(data.rickandmortyapi.characters.results)
-            }
-            setSearchText(e.target.value)
-          }}
-        />
+        <div className="search-bar__inputbox">
+          <input
+            className="search-bar__inputbox__input"
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={e => {
+              if (e.target.value === "") {
+                setCharacters(data.rickandmortyapi.characters.results)
+              }
+              setSearchText(e.target.value)
+            }}
+          />
+          {searchText !== "" ? (
+            <FaTimes
+              className="search-bar__inputbox__close-icon"
+              onClick={() => {
+                setSearchText("")
+                setCharacters(data.rickandmortyapi.characters.results)
+              }}
+            />
+          ) : null}
+        </div>
         <div className="search-bar__button" onClick={updateCharacters}>
           Search
         </div>
       </div>
       <div className="home">
-        {characters.length > 0 ? (
+        {loading ? (
+          <div className="loading">
+            <img src="/loading.gif" alt="" className="loading__img" />
+          </div>
+        ) : characters.length > 0 ? (
           characters.map(character => (
             <div key={character.id} className="container">
               <Profile character={character} />
@@ -85,10 +105,16 @@ const PageTemplate = ({ data, pageContext }) => {
             to={`/page/${pageNo + 1}`}
             key={pageNo}
             className={
-              pageNo + 1 === page
+              pageNo + 1 === page && characters.length > 0 && searchText === ""
                 ? "pagination__pgnumber pagination__selected"
                 : "pagination__pgnumber"
             }
+            onClick={() => {
+              if (pageNo + 1 === page) {
+                setCharacters(data.rickandmortyapi.characters.results)
+                setSearchText("")
+              }
+            }}
           >
             <div>{pageNo + 1}</div>
           </Link>

@@ -16,7 +16,15 @@ a {
   color: #fff;
   text-decoration: none;
 }
-
+.loading {
+  text-align: center;
+  width: 100%;
+  &__img {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+  }
+}
 .navbar {
   width: 100%;
   height: 60px;
@@ -38,10 +46,29 @@ a {
 .search-bar {
   margin-top: 30px;
   text-align: center;
-  &__input {
-    padding: 10px;
+  &__inputbox {
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
     margin: 10px;
+    padding: 0;
+    position: relative;
+
+    &__input {
+      padding: 10px 40px 10px 10px;
+      outline: none;
+      border: none;
+    }
+
+    &__close-icon {
+      position: absolute;
+      margin-top: 9px;
+      margin-left: -20px;
+      // margin-left: -50px;
+      color: #000;
+      cursor: pointer;
+    }
   }
+
   &__button {
     cursor: pointer;
     display: inline-block;
@@ -53,8 +80,12 @@ a {
 .home {
   margin-top: 30px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   padding: 0px 200px;
+  min-height: 400px;
+
   h3 {
     text-align: center;
     width: 100%;
@@ -65,7 +96,7 @@ a {
   width: 50%;
   border: 20px solid transparent;
 }
-//
+
 .landing {
   height: calc(100vh - 60px);
   display: flex;
