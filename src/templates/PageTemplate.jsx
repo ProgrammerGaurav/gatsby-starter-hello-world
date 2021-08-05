@@ -126,7 +126,7 @@ const PageTemplate = ({ data, pageContext }) => {
 
 const Profile = ({ character }) => {
   return (
-    <Link to={`/${character.id}`}>
+    <Link to={`/character/${character.id}`}>
       <div className="profile-card">
         <div className="profile-card__image">
           <img src={character.image} alt="" />

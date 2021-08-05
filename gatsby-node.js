@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     characterdata.data.rickandmortyapi.characters.results.map(character => {
       createPage({
-        path: `/${character.id}`,
+        path: `/character/${character.id}`,
         component: characterTemplate,
         context: {
           character,
