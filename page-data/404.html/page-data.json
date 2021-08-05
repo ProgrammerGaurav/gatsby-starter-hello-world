@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-character-template-jsx","path":"/404.html","result":{"pageContext":{"character":{"name":"Michael Jackson","gender":"Male","id":"404","image":"https://rickandmortyapi.com/api/character/avatar/404.jpeg","location":{"name":"Earth (Phone Dimension)"},"origin":{"name":"Earth (Phone Dimension)"},"species":"Humanoid","status":"Alive"}}},"staticQueryHashes":[]}
+{"componentChunkName":"component---src-pages-404-jsx","path":"/404.html","result":{"pageContext":{}},"staticQueryHashes":[]}
