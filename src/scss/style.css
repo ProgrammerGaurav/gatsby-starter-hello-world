@@ -21,6 +21,16 @@ a {
 .loading {
   text-align: center;
   width: 100%;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loading__img {
@@ -193,6 +203,7 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-align: left;
   margin: 10px;
 }
 
@@ -207,6 +218,7 @@ a {
 }
 
 .pagination__pgnumber {
+  cursor: pointer;
   display: inline-block;
   border: 2px solid #fff;
   padding: 10px;
